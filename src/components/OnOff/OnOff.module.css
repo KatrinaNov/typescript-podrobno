@@ -1,0 +1,29 @@
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: darkgreen;
+    vertical-align: middle;
+    margin-left: 5px;
+    box-shadow: 0 0 2px 2px #111;
+}
+button {
+    padding: 10px;
+    margin: 5px;
+}
+.turnOn {
+    background: darkgreen;
+    color: #fff;
+}
+.Off .turnOn {
+    background: #eee;
+    color: #000;
+}
+.Off .turnOff {
+    background: red;
+    color: #fff;
+}
+.Off .circle {
+    background: red;
+}
