@@ -6,11 +6,10 @@ type AccordionPropsType = {
 function UncontrolledAccordion(props: AccordionPropsType) {
 
   let [collapsed, setCollapsed] = useState(true);
-
+  const toggleCollapsed = () => setCollapsed(!collapsed)
   return (
       <div>
-        <AccordionTitle title={props.titleValue}/>
-        <button onClick={() => {setCollapsed(!collapsed)}}>Toggle</button>
+        <AccordionTitle title={props.titleValue} toggleCollapsed={toggleCollapsed}/>
         { !collapsed && <AccordionBody/>}
       </div>
     )
@@ -18,10 +17,11 @@ function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
   title: string
+  toggleCollapsed: () => void
 }
 function AccordionTitle(props: AccordionTitlePropsType){
   return (
-    <h3>{props.title}</h3>
+    <h3 onClick={props.toggleCollapsed}>{props.title}</h3>
   )
 }function AccordionBody(){
   return (

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UnControlledAccordion/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
 
 function App() {
+
+  let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
   return (
     <div className="App">
-      {/*<Accordion titleValue = {'Menu'} collapsed = {true}/>*/}
-      {/*<Accordion titleValue = {'Users'} collapsed = {false}/>*/}
-      <UncontrolledAccordion titleValue = {'Menu'}/>
+      <Accordion titleValue = {'Menu'} collapsed = {accordionCollapsed} toggleAccordion={setAccordionCollapsed}/>
       <UncontrolledAccordion titleValue = {'Users'}/>
 
-      <Rating value={3}/>
+      <Rating value={ratingValue} onClick={setRatingValue}/>
       <UncontrolledRating/>
 
       <OnOff/>
