@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UnControlledAccordion/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import ControlledOnOff from "./components/ControlledOnOff/ControlledOnOff";
+import OnOff from "./components/OnOff/OnOff";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 
 function App() {
@@ -15,14 +15,14 @@ function App() {
   let [on, setOn] = useState<boolean>(true);
   return (
     <div className="App">
-      <Accordion titleValue = {'Menu'} collapsed = {accordionCollapsed} toggleAccordion={setAccordionCollapsed}/>
+      <Accordion titleValue = {'Menu'} collapsed = {accordionCollapsed} toggleAccordion={() => setAccordionCollapsed(!accordionCollapsed)}/>
       <UncontrolledAccordion titleValue = {'Users'}/>
 
       <Rating value={ratingValue} onClick={setRatingValue}/>
       <UncontrolledRating/>
 
-      <OnOff/>
-      <ControlledOnOff on={on} setOn = {setOn}/>
+      <UncontrolledOnOff onChange={setOn}/>
+      <OnOff on={on} onChange = {setOn}/>
     </div>
   );
 }
