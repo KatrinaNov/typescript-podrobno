@@ -5,7 +5,7 @@ type OnOffPropsType = {
   onChange: (on: boolean) => void
 }
 
-function UncontrolledOnOff(props: OnOffPropsType) {
+export function UncontrolledOnOff(props: OnOffPropsType) {
 
   let [on, setOn] = useState(false);
 
@@ -50,4 +50,3 @@ function UncontrolledOnOff(props: OnOffPropsType) {
   )
 }
 
-export default UncontrolledOnOff;

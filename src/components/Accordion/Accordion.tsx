@@ -5,7 +5,7 @@ type AccordionPropsType = {
   collapsed: boolean
   toggleAccordion: () => void
 }
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (
       <div>
         <AccordionTitle title={props.titleValue} toggleAccordion={props.toggleAccordion}/>
@@ -20,7 +20,7 @@ type AccordionTitlePropsType = {
 }
 function AccordionTitle(props: AccordionTitlePropsType){
   return (
-    <h3 onClick={props.toggleAccordion}>{props.title}</h3>
+    <h3 onClick={(e) => props.toggleAccordion()}>{props.title}</h3>
   )
 }function AccordionBody(){
   return (
@@ -32,4 +32,3 @@ function AccordionTitle(props: AccordionTitlePropsType){
   )
 }
 
-export default Accordion;

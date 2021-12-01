@@ -5,7 +5,7 @@ type OnOffPropsType = {
   onChange: (on: boolean) => void
 }
 
-function OnOff(props: OnOffPropsType) {
+export function OnOff(props: OnOffPropsType) {
   const onStyle = {
     border: "1px solid #000",
     display: "inline-block",
@@ -38,4 +38,3 @@ function OnOff(props: OnOffPropsType) {
   )
 }
 
-export default OnOff;
