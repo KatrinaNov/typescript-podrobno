@@ -15,8 +15,7 @@ const Select = (props: SelectPropsType) => {
   let [collapsed, setCollapsed] = useState(true);
 
   const renderSelectItem = () => {
-    !collapsed &&
-    props.items.map((item, i) => {
+    return props.items.map((item, i) => {
       const changeTitle = () => {
         props.onChange(item.title);
         toggleCollapsed()
@@ -31,7 +30,7 @@ const Select = (props: SelectPropsType) => {
     <div className={"select"}>
       <div onClick={toggleCollapsed} className={finalSelectTitleClass}>{props.value}</div>
       <div className={"select-body"}>
-        {renderSelectItem}
+        {!collapsed && renderSelectItem()}
       </div>
     </div>
   )
