@@ -15,14 +15,10 @@ function App() {
   // let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
   // let [on, setOn] = useState<boolean>(true);
   // let [count, setCount] = useState<number>(0)
-  const [selectValue, setSelectValue] = useState<string | undefined>("Выбрать юзера")
+  const [selectValue, setSelectValue] = useState<string | undefined>("1")
 
-  const onClickCallback = (value: any) => {
-    console.log(value)
-  }
-  const OnChangeSelectValue = (value: any) => {
-    setSelectValue(value);
-  }
+  const onClickCallback = (value: any) => {console.log(value)}
+
   const items = [
     {title: "Kate", value: "1"},
     {title: "Maks", value: "2"},
@@ -30,7 +26,7 @@ function App() {
   ]
   return (
     <div className="App">
-      <Select value={selectValue} onChange={OnChangeSelectValue} items={items}/>
+      <Select value={selectValue} items={items} onChange={setSelectValue}/>
       {/*    <Accordion
         titleValue={'Menu'}
         collapsed={accordionCollapsed}

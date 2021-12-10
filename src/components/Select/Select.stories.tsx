@@ -2,41 +2,40 @@ import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {ComponentStory} from "@storybook/react";
 import Select from "./Select";
+import {Accordion} from "../Accordion/Accordion";
 
-const getCategoryObj = (categoryName: string) => ({
-  table: {
-    category: categoryName
-  }
-})
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'components/Select',
   component: Select,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    toggleAccordion: {...getCategoryObj('Events')},
-    color: {...getCategoryObj('Colors')},
-    titleValue: {...getCategoryObj('Main')},
-    collapsed: {...getCategoryObj('Main')},
-  },
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;
 const callback = action('clicked')
-const onClickCallback = action('some item was clicked')
 
-// const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 //
-// export const CollapsedMode = Template.bind({})
-// CollapsedMode.args = {
-//   titleValue: 'Menu',
-//   collapsed: true,
-//   toggleAccordion: callback,
-//   items: [
-//     {title: "Kate", value: "1"},
-//     {title: "Maks", value: "2"},
-//     {title: "Vanya", value: "3"}]
-// }
+export const WithoutValue: ComponentStory<typeof Accordion> = (args) => {
+  const [value, setValue] = useState<string | null>(null)
+  return <Select {...args}
+                 value={value}
+                 onChange={setValue}
+                 items={[
+                   {title: "Kate", value: "1"},
+                   {title: "Maks", value: "2"},
+                   {title: "Vanya", value: "3"}]}
+  />;
+}
+
+export const WithValue: ComponentStory<typeof Accordion> = (args) => {
+  const [value, setValue] = useState<string | null>('2')
+  return <Select {...args}
+                 value={value}
+                 onChange={setValue}
+                 items={[
+                   {title: "Kate", value: "1"},
+                   {title: "Maks", value: "2"},
+                   {title: "Vanya", value: "3"}]}
+  />;
+}
 

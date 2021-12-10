@@ -1,15 +1,18 @@
 .select {
+    position: relative;
     max-width: 300px;
     margin: 50px auto;
     text-align: left;
 }
-.select-title {
+.selectTitle {
     position: relative;
     padding: 10px;
     cursor: pointer;
     margin-bottom: 0;
+    border-bottom: 1px solid green;
+    min-height: 20px;
 }
-.select-title:after {
+.selectTitle:after {
     content: '';
     position: absolute;
     border: 8px solid transparent;
@@ -17,27 +20,32 @@
     right: 0;
     top: 50%;
 }
-.select-title.active:after{
+.selectTitle.active:after{
     border: 8px solid transparent;
     border-bottom: 8px solid green;
     transform: translateY(-50%);
 }
-.select-body {
+.selectBody {
     border: 1px solid green;
     margin: 0;
+    position: absolute;
+    width: 100%;
 }
-.select-body div {
+.item {
     padding: 10px;
     margin: 0;
     cursor: pointer;
 }
-.select-body div:not(:last-child) {
+.item:not(:last-child) {
     border-bottom: 1px solid rgba(0, 128,0,0.3);
 }
-.select-title:hover {
+.selectTitle:hover {
     background: #eee;
 }
-.select-body div:hover {
+.item.selected {
+    background: limegreen;
+}
+.item:hover {
     color: #fff;
     background: green;
 }
