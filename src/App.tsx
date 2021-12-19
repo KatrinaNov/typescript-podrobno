@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import './App.css';
-// import {Accordion} from "./components/Accordion/Accordion";
+import {Accordion} from "./components/Accordion/Accordion";
 // import {Rating, RatingValueType} from "./components/Rating/Rating";
 // import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 // import {OnOff} from "./components/OnOff/OnOff";
 // import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
-// import {UncontrolledAccordion} from "./components/UnControlledAccordion/UncontrolledAccordion";
+import {UncontrolledAccordion} from "./components/UnControlledAccordion/UncontrolledAccordion";
 import Select from "./components/Select/Select";
 
 
 function App() {
 
   // let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
-  // let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
+  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
   // let [on, setOn] = useState<boolean>(true);
   // let [count, setCount] = useState<number>(0)
   const [selectValue, setSelectValue] = useState<string | undefined>("1")
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Select value={selectValue} items={items} onChange={setSelectValue}/>
-      {/*    <Accordion
+      <Accordion
         titleValue={'Menu'}
         collapsed={accordionCollapsed}
         toggleAccordion={() => setAccordionCollapsed(!accordionCollapsed)}
@@ -36,8 +36,8 @@ function App() {
           {title: "Maks", value: "2"},
           {title: "Vanya", value: "3"}]}
         onClick={onClickCallback}
-      />*/}
-      {/*<UncontrolledAccordion titleValue={'Users'}/>*/}
+      />
+      <UncontrolledAccordion titleValue={'Users'}/>
 
       {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
       {/*<UncontrolledRating/>*/}
