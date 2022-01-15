@@ -11,9 +11,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;
-const callback = action('clicked')
+// const callback = action('clicked')
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+// const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 //
 export const WithoutValue: ComponentStory<typeof Accordion> = (args) => {
   const [value, setValue] = useState<string | null>(null)

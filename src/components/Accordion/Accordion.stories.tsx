@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {Accordion} from "./Accordion";
-import {OnOff} from "../OnOff/OnOff";
 import {ComponentStory} from "@storybook/react";
 
 const getCategoryObj = (categoryName: string) => ({
